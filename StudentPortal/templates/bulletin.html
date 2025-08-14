@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title%} News {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='bulletin.css')}}">
+{% endblock %}
+
+{% block content %}
+<h1 class="title"> Bulletin Board </h1>
+
+<div class="body">
+    <div class="bulletin-entries">
+        {% for bulletin_notice in bulletin_notices %}
+        <h3 id="date"> {{bulletin_notice.date}}</h3>
+
+        <ul>
+            {% for year_group in bulletin_notice.year_groups %}
+            <li> {{year_group}} </li>
+            {% endfor %}
+        </ul>
+
+        <h2 class="notice-subject"> {{bulletin_notice.title }} </h2>
+
+        <div class="content">
+            <p> {{bulletin_notice.content}}</p>
+        </div>
+        <hr class="line">
+        {% endfor %}
+    </div>
+
+    <div class="sort-form">
+        <h2> Filter bulletin notices by data: </h2>
+        <form action="{{url_for('bulletin', student_id=student_id)}}">
+            {% for btn in sort_form.sort_type %}
+                {{ btn() }}
+                {{ btn.label}}
+            {% endfor %}
+            <h2> {{sort_form.submit()}}</h2>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+h1, h2, h3 {
+    color: crimson;
+}
+
+
+.background-image {
+    background-image: url(https://i.pinimg.com/1200x/f0/53/31/f053312501da8df5ac58ecace259559c.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    background-size: 100% auto;
+    opacity: 0.95;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.login-form {
+    color: white;
+    z-index: 2;
+    position: relative;
+}

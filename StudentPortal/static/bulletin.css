@@ -1,0 +1,57 @@
+#date {
+    width: 150px;
+    margin: 20px;
+    padding: 10px auto;
+}
+
+.content {
+    margin: 20px;
+}
+
+
+.bulletin-entries {
+    text-align: left;
+}
+
+.notice-subject {
+    text-decoration: underline;
+    margin: 20px;
+    color: crimson;
+}
+
+
+.sort-form {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 19px;
+}
+
+
+.sort-form h2 {
+    text-decoration: underline;
+    color: crimson;
+}
+
+.body {
+    display: flex;
+    justify-content: 50px;
+}
+
+li {
+    font-size: 18.72px;
+
+} 
+
+.line {
+    border: none;
+    height: 5px;
+    background-color: crimson;
+    width: 1300px;
+    margin-left: 0;
+    
+}
+
+p {
+    font-size: 19px;
+    width: 1250px;
+}

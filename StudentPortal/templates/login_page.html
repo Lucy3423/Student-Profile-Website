@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Login Page </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='login.css')}}">
+</head>
+
+<body>
+    <div class="background-image">
+        <h1> Login Page </h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <h2> {{messages[0]}}</h2>
+        {% endif %}
+        {% endwith %}
+        <form class="login-form" action="/login" method="post">
+            {{login_form.hidden_tag()}}
+
+            {{login_form.username.label}}
+            {{login_form.username}}
+
+            {{login_form.password.label}}
+            {{login_form.password}} <br><br>
+            {{login_form.submit()}}
+        </form>
+    </div>
+</body>
+
+</html>

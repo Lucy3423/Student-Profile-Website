@@ -1,0 +1,23 @@
+{% extends "base.html"%}
+
+{% block title %} Student Profile {% endblock %} 
+
+
+{% block content %}
+    <h1 class="title"> Student Profile </h1>
+
+    {% for key, value in student.__dict__.items() %}
+        {% if not loop.last %}
+            <h2><b>{{ key | title}}:</b> <span style="font-weight: normal;">{{ value }}</span></h2>        
+        {% endif %}
+    {% endfor %}
+
+
+
+    <h2> Currently studying {{subjects | length}} subjects in:</h2>
+    <ul>
+        {% for subject in subjects %}
+            <li><h2> {{subject}} </h2></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

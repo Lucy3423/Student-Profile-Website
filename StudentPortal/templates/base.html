@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'base.css')}}">
+    {% block head %} {% endblock %}
+</head>
+
+<body>
+
+    <div class="header">
+        <a href="{{url_for('dashboard', student_id=student_id) }}">Dashboard</a>
+        |
+        <a href="{{url_for('student_profile', student_id=student_id)}}">Student Profile</a>
+        |
+        <a href="{{url_for('bulletin', student_id=student_id)}}"> Bulletin</a>
+
+        |
+        <a href="{{url_for('login')}}">Sign Out</a>
+
+    </div>
+
+    <div class="background-image"> </div>
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

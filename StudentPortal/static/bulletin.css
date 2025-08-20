@@ -1,16 +1,27 @@
+.left, .right {
+    flex: 1;
+    margin-right: 70px;
+    text-align: center;
+}
+
 #date {
     width: 150px;
     margin: 20px;
     padding: 10px auto;
 }
 
+#failure-message {
+    text-align: right;
+}
 .content {
     margin: 20px;
+    width: 10px;
 }
 
 
 .bulletin-entries {
     text-align: left;
+    margin: 20px;
 }
 
 .notice-subject {
@@ -21,7 +32,7 @@
 
 
 .sort-form {
-    text-align: left;
+    text-align: right;
     margin-left: 20px;
     font-size: 19px;
 }
@@ -34,7 +45,8 @@
 
 .body {
     display: flex;
-    justify-content: 50px;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 li {
@@ -47,11 +59,17 @@ li {
     height: 5px;
     background-color: crimson;
     width: 1300px;
-    margin-left: 0;
+    
     
 }
 
 p {
     font-size: 19px;
     width: 1250px;
+}
+
+
+#sort-options {
+    text-align: left;
+    margin-left: -5px;
 }

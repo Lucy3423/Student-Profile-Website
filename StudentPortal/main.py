@@ -12,8 +12,6 @@ from forms.bulletin_sort_form import Bulletin_sort_form
 
 
 
-
-
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "mysecret"
 
@@ -21,10 +19,13 @@ system = System()
 system.set_up_students()
 
 
-new_bulletin_notice = Bulletin_notice("11/08/2025", "School Uniform Update", ["All Years"], "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to.")
+new_bulletin_notice = Bulletin_notice("11/08/2025", "School Uniform Update", "upper 4", "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to.")
 system.bulletin_notices.append(new_bulletin_notice)
-new_bulletin_notice = Bulletin_notice("09/08/2025", "Pack Lunches", ["All Years"], "This is a reminder that if your child wishes to have pack lunches next term, you must opt out of school lunches by 20/08/2025. Failing to do so will lead to automatique payment for the next term's lunches at school.")
+new_bulletin_notice = Bulletin_notice("09/08/2025", "Pack Lunches", "all", "This is a reminder that if your child wishes to have pack lunches next term, you must opt out of school lunches by 20/08/2025. Failing to do so will lead to automatique payment for the next term's lunches at school.")
 system.bulletin_notices.append(new_bulletin_notice)
+new_bulletin_notice = Bulletin_notice("20/08/2025", "Halloween Disco", "upper 6", "There will be a Halloween disco next Friday (29/08/25) starting at 6:30pm until 8pm. Students are encouraged to dress up in fun costumes for the event.")
+system.bulletin_notices.append(new_bulletin_notice)
+
 
 @app.route("/dashboard/<int:student_id>")
 def dashboard(student_id):
@@ -57,16 +58,12 @@ def login():
 
 
 
-@app.route('/bulletin/<int:student_id>')
+@app.route('/bulletin/<int:student_id>', methods=["GET", "POST"])
 def bulletin(student_id):
     sort_form = Bulletin_sort_form()
-    sort_filter = sort_form.sort_type.data
-    print(sort_filter)
-    return render_template("bulletin.html", bulletin_notices=system.bulletin_notices, student_id=student_id, sort_form=sort_form)
-
-
-
-
+    sort_type = sort_form.sort_type.data
+    print(sort_type)
+    return render_template("bulletin.html", bulletin_notices=system.bulletin_notices, student_id=student_id, sort_form=sort_form, sort_type=sort_type)
 
 
 if __name__ == "__main__":

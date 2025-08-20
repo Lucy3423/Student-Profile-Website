@@ -10,34 +10,42 @@
 <h1 class="title"> Bulletin Board </h1>
 
 <div class="body">
-    <div class="bulletin-entries">
-        {% for bulletin_notice in bulletin_notices %}
-        <h3 id="date"> {{bulletin_notice.date}}</h3>
+    <div class="left">
+        <div class="bulletin-entries">
+            {% for bulletin_notice in bulletin_notices if (bulletin_notice.year_group == sort_type or sort_type == "all") %}
+                <h3 id="date"> {{bulletin_notice.date}}</h3>
+                <ul>
+                    <li>
+                        <h4> {{bulletin_notice.year_group | title}} </h4>
+                    </li>
+                </ul>
+                <h2 class="notice-subject"> {{bulletin_notice.title }} </h2>
+                <div class="content">
+                    <p> {{bulletin_notice.content}}</p>
+                </div>
+            
+                <hr class="line">
 
-        <ul>
-            {% for year_group in bulletin_notice.year_groups %}
-            <li> {{year_group}} </li>
+                {% else %}
+                <h2> Bulletin notices do not currentlly apply to this year </h2>
             {% endfor %}
-        </ul>
-
-        <h2 class="notice-subject"> {{bulletin_notice.title }} </h2>
-
-        <div class="content">
-            <p> {{bulletin_notice.content}}</p>
         </div>
-        <hr class="line">
-        {% endfor %}
     </div>
 
-    <div class="sort-form">
-        <h2> Filter bulletin notices by data: </h2>
-        <form action="{{url_for('bulletin', student_id=student_id)}}">
-            {% for btn in sort_form.sort_type %}
-                {{ btn() }}
-                {{ btn.label}}
-            {% endfor %}
-            <h2> {{sort_form.submit()}}</h2>
-        </form>
+    <div class="right">
+        <div class="sort-form">
+            <h2> Filter bulletin notices by data: </h2>
+            <form action="{{url_for('bulletin', student_id=student_id)}}" method="post">
+                {{sort_form.hidden_tag()}}
+                <div id="sort-options">
+                {% for btn in sort_form.sort_type %}
+                    {{ btn() }}
+                    {{ btn.label}} <br>
+                {% endfor %}
+                <h2> {{sort_form.submit()}}</h2>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

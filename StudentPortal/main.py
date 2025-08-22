@@ -17,6 +17,7 @@ app.config["SECRET_KEY"] = "mysecret"
 
 system = System()
 system.set_up_students()
+system.set_up_clubs()
 
 
 new_bulletin_notice = Bulletin_notice("11/08/2025", "School Uniform Update", "upper 4", "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to.")
@@ -64,6 +65,11 @@ def bulletin(student_id):
     sort_type = sort_form.sort_type.data
     print(sort_type)
     return render_template("bulletin.html", bulletin_notices=system.bulletin_notices, student_id=student_id, sort_form=sort_form, sort_type=sort_type)
+
+
+@app.route('/clubs/<int:student_id>')
+def clubs(student_id):
+    return render_template("clubs.html", student_id=student_id, system=system)
 
 
 if __name__ == "__main__":

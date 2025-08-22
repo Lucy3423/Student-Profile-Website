@@ -1,0 +1,24 @@
+#category {
+    width: 150px;
+    margin: 20px;
+    padding: 10px auto;
+}
+
+.content {
+    width: 500px;
+    margin: 50px;
+    margin-left: 190px;
+}
+
+.club-list {
+    font-size: 20px;
+}
+
+.club-name {
+    color: crimson
+}
+
+summary:hover {
+    background-color: lightcoral;
+    color: white;
+}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %} Clubs {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='clubs.css')}}">
+{% endblock %}
+
+{% block content %}
+<h1 class="title"> Clubs </h1>
+<!-- create the timetable -->
+<table>
+    <!-- create the headers -->
+    <tr>
+        <th> Day/Period </th>
+        <th> Morning (8:00am -> 8:45am) </th>
+        <th> Lunch Pt 1 (12:05pm -> 12:25pm) </th>
+        <th> Lunch Pt 2 (12:25pm -> 1:05pm) </th>
+        <th> Afternoon (3:50pm -> 5:00pm) </th>
+    </tr>
+
+    <!-- create a new row for each day of the week -->
+    <tr>
+        <th> Monday </th>
+        <td> Space design</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th> Tuesday </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th> Wednesday </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th> Thursday </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <th> Friday </th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<!-- List out the options for clubs -->
+<div class="content">
+    <div class="club-list">
+        <!-- Display the science clubs -->
+        <details>
+            <summary><b> Science Clubs </b></summary>
+            <ul>
+            {% for science_club in system.science_clubs %}
+
+            <li class="club-name"><h3>{{science_club.name | title}}</h3></li>
+            <h4> {{science_club.day | title}} {{system.identify_club_time_slot(science_club)}}</h4>
+            {% endfor %}
+            </ul>
+        </details> <br>
+
+        <!-- Display the social science clubs -->
+        <details>
+            <summary><b> Social Science Clubs </b></summary>
+            <ul>
+            {% for social_science_club in system.social_science_clubs %}
+
+            <li class="club-name"><h3> {{social_science_club.name | title}}</h3></li>
+            <h4> {{social_science_club.day | title}} {{system.identify_club_time_slot(social_science_club)}}</h4>
+            </ul>
+            {% endfor %}
+        </details> <br>
+    </div>
+
+
+</div>
+
+{% endblock %}

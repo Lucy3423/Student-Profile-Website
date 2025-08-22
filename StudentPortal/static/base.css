@@ -10,7 +10,7 @@ p {
     font-size: larger;
 }
 
-.header {
+.navigation-bar {
     width: 100%;
     height: 50px;
     background-color: lightcoral;
@@ -35,16 +35,71 @@ a:hover {
     color: white;
     background-color: crimson
 }
-.background-image {
-    background-image: url(https://i.pinimg.com/1200x/f0/53/31/f053312501da8df5ac58ecace259559c.jpg);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: center 27%;
-    height: 290px;
+.header-image {
+    display: block;
     width: 100%;
-    opacity: 0.95
+    height: 290px;
+    overflow: hidden;
 }
+
+.header-image img {
+    object-position: center 27%;
+    opacity: 0.95;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
 
 body {
     margin: 0;
 }
+
+table {
+    border-collapse: collapse;
+    border: 2px solid crimson;
+    margin: 10px auto;
+    width: 1200px;
+    font-size: 17px;
+}
+
+th, td {
+    border: 2px solid crimson;
+    padding: 8px;
+    text-align: center;
+    color: whitesmoke
+
+}
+
+th {
+    background-color: lightcoral;
+}
+
+.break-line {
+    border: none;
+    height: 5px;
+    background-color: crimson;
+    width: 1300px; 
+}
+
+.left {
+    flex: 1;
+    margin-right: 70px;
+    text-align: left;
+}
+
+.right {
+    flex: 1;
+    margin-right: 70px;
+    text-align: right;
+}
+
+.subject {
+    text-decoration: underline;
+    margin: 20px;
+    color: crimson;
+}
+
+
+

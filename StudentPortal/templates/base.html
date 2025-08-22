@@ -9,19 +9,22 @@
 
 <body>
 
-    <div class="header">
+    <div class="navigation-bar">
         <a href="{{url_for('dashboard', student_id=student_id) }}">Dashboard</a>
         |
         <a href="{{url_for('student_profile', student_id=student_id)}}">Student Profile</a>
         |
         <a href="{{url_for('bulletin', student_id=student_id)}}"> Bulletin</a>
-
+        |
+        <a href="{{url_for('clubs', student_id=student_id)}}"> Clubs </a>
         |
         <a href="{{url_for('login')}}">Sign Out</a>
 
     </div>
 
-    <div class="background-image"> </div>
+    <div class="header-image">
+        <img src="https://i.pinimg.com/1200x/f0/53/31/f053312501da8df5ac58ecace259559c.jpg">    
+    </div>
 
     <div>
         {% block content %}

@@ -62,18 +62,20 @@ table {
     margin: 10px auto;
     width: 1200px;
     font-size: 17px;
-}
-
-th, td {
-    border: 2px solid crimson;
-    padding: 8px;
-    text-align: center;
-    color: whitesmoke
-
+    position: center;
 }
 
 th {
+    border: 2px solid crimson;
+    padding: 8px;
+    text-align: center;
+    color: whitesmoke;
     background-color: lightcoral;
+}
+
+td {
+    border: 2px solid crimson;
+    text-align: center;
 }
 
 .break-line {

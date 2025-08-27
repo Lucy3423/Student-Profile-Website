@@ -6,5 +6,5 @@ class Student:
         self.username = username
         self.password = password 
         self.subjects:list = subjects
-        self.clubs:list = clubs
+        self.clubs = clubs
     

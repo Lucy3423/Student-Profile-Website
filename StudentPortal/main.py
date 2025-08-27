@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
@@ -20,7 +20,8 @@ system.set_up_students()
 system.set_up_clubs()
 
 
-new_bulletin_notice = Bulletin_notice("11/08/2025", "School Uniform Update", "upper 4", "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to.")
+
+new_bulletin_notice = Bulletin_notice("11/08/2025", "School Uniform Update", "upper 4", "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to.",)
 system.bulletin_notices.append(new_bulletin_notice)
 new_bulletin_notice = Bulletin_notice("09/08/2025", "Pack Lunches", "all", "This is a reminder that if your child wishes to have pack lunches next term, you must opt out of school lunches by 20/08/2025. Failing to do so will lead to automatique payment for the next term's lunches at school.")
 system.bulletin_notices.append(new_bulletin_notice)
@@ -67,9 +68,14 @@ def bulletin(student_id):
     return render_template("bulletin.html", bulletin_notices=system.bulletin_notices, student_id=student_id, sort_form=sort_form, sort_type=sort_type)
 
 
-@app.route('/clubs/<int:student_id>')
+@app.route('/clubs/<int:student_id>', methods=["GET", "POST"])
 def clubs(student_id):
-    return render_template("clubs.html", student_id=student_id, system=system)
+    club_id = 100
+    if request.method == "POST":
+        club_id = int(request.form.get("club_id"))
+        system.find_chosen_club(club_id, system.students[student_id])
+    club_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    return render_template("clubs.html", student_id=student_id, system=system, club_id=club_id, club_days = club_days)
 
 
 if __name__ == "__main__":

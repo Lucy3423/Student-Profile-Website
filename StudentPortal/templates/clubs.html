@@ -8,88 +8,155 @@
 
 {% block content %}
 <h1 class="title"> Clubs </h1>
-<!-- create the timetable -->
+
 <table>
-    <!-- create the headers -->
-    <tr>
-        <th> Day/Period </th>
-        <th> Morning (8:00am -> 8:45am) </th>
-        <th> Lunch Pt 1 (12:05pm -> 12:25pm) </th>
-        <th> Lunch Pt 2 (12:25pm -> 1:05pm) </th>
-        <th> Afternoon (3:50pm -> 5:00pm) </th>
-    </tr>
+    <thead>
+        <tr>
+            <th> Day/Period </th>
+            <th> Morning (8:00am -> 8:45am) </th>
+            <th> Lunch Pt 1 (12:05pm -> 12:25pm) </th>
+            <th> Lunch Pt 2 (12:25pm -> 1:05pm) </th>
+            <th> Afternoon (3:50pm -> 5:00pm) </th>
+        </tr>
+    </thead>
 
-    <!-- create a new row for each day of the week -->
-    <tr>
-        <th> Monday </th>
-        <td> Space design</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    <tbody>
+        <tr>
+            <th> {{club_days[0]}}</th>
+            {% for club in system.students[student_id].clubs[0] %}
+                <td> {{club}} </td>
+            {% endfor %}
+        </tr>
 
-    <tr>
-        <th> Tuesday </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+        <tr>
+            <th> {{club_days[1]}}</th>
+            {% for club in system.students[student_id].clubs[1] %}
+                <td> {{club}}</td>
+            {% endfor %}
+        </tr>
 
-    <tr>
-        <th> Wednesday </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+        <tr>
+            <th> {{club_days[2]}}</th>
+            {% for club in system.students[student_id].clubs[2] %}
+                <td> {{club}} </td>
+            {% endfor %}
+        </tr>
 
-    <tr>
-        <th> Thursday </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+        <tr>
+            <th> {{club_days[3]}}</th>
+            {% for club in system.students[student_id].clubs[3] %}
+                <td> {{club}}</td>
+            {% endfor %}
+        </tr>
 
-    <tr>
-        <th> Friday </th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+        <tr>
+            <th> {{club_days[4]}}</th>
+            {% for club in system.students[student_id].clubs[4] %}
+                <td> {{club}} </td>
+            {% endfor %} 
+        </tr>
+    </tbody>
 </table>
 
+
 <!-- List out the options for clubs -->
-<div class="content">
-    <div class="club-list">
+<div class="categories">
+    <div class="category">
         <!-- Display the science clubs -->
         <details>
             <summary><b> Science Clubs </b></summary>
             <ul>
-            {% for science_club in system.science_clubs %}
+                {% for science_club in system.science_clubs %}
 
-            <li class="club-name"><h3>{{science_club.name | title}}</h3></li>
-            <h4> {{science_club.day | title}} {{system.identify_club_time_slot(science_club)}}</h4>
-            {% endfor %}
+                <li>
+                    <h3 id="category-name">{{science_club.name | title}}</h3>
+
+                    <h4> {{science_club.day | title}} {{system.identify_club_time_slot(science_club)}}</h4>
+                    <form method="POST">
+                        <input type="hidden" name="club_id" value="{{science_club.club_id}}">
+                        <button type="submit"> Add Club </button>
+                    </form>
+                </li>
+                {% endfor %}
             </ul>
-        </details> <br>
-
-        <!-- Display the social science clubs -->
+        </details>
+    </div>
+    <!-- Display the social science clubs -->
+    <div class="category">
         <details>
             <summary><b> Social Science Clubs </b></summary>
             <ul>
-            {% for social_science_club in system.social_science_clubs %}
+                {% for social_science_club in system.social_science_clubs %}
+                <li>
+                    <h3 id="category-name"> {{social_science_club.name | title}}</h3>
 
-            <li class="club-name"><h3> {{social_science_club.name | title}}</h3></li>
-            <h4> {{social_science_club.day | title}} {{system.identify_club_time_slot(social_science_club)}}</h4>
+                    <h4> {{social_science_club.day | title}} {{system.identify_club_time_slot(social_science_club)}}
+                    </h4>
+                    <form method="POST">
+                        <input type="hidden" name="club_id" value="{{social_science_club.club_id}}">
+                        <button type="submit"> Add Club </button>
+                    </form>
+                </li>
+                {% endfor %}
             </ul>
-            {% endfor %}
-        </details> <br>
+
+        </details>
     </div>
 
+    <div class="category">
+        <details>
+            <summary><b> Music Clubs </b></summary>
+            <ul>
+                {% for music_club in system.music_clubs %}
+                <li>
+                    <h3 id="category-name"> {{music_club.name | title}}</h3>
+                    <h4> {{music_club.day | title}} {{system.identify_club_time_slot(music_club)}}</h4>
+                    <form method="POST">
+                        <input type="hidden" name="club_id" value="{{music_club.club_id}}">
+                        <button type="submit"> Add Club </button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </details>
+    </div>
 
+    <div class="category">
+        <details>
+            <summary><b> Sports Clubs </b></summary>
+            <ul>
+                {% for sport_club in system.sport_clubs %}
+                <li>
+                    <h3 id="category-name"> {{sport_club.name | title}}</h3>
+                    <h4> {{sport_club.day | title}} {{system.identify_club_time_slot(sport_club)}}</h4>
+                    <form method="POST">
+                        <input type="hidden" name="club_id" value="{{sport_club.club_id}}">
+                        <button type="submit"> Add Club </button>
+                    </form>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </details>
+    </div>
 </div>
+{% endblock %}    #
 
-{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

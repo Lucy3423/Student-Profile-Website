@@ -18,21 +18,31 @@
 }
 
 .sort-form {
-    text-align: left;
+    text-align: center;
     font-size: 19px;
-    width: 150px;
+    flex: 1;
+
 }
 
 
 .sort-form h2 {
     text-decoration: underline;
     color: crimson;
+    flex: 1;
 }
 
 .body {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 2; /* takes up 2 parts of the available space */
+    text-align: center;
+    padding: 10px;
+
 }
 
 li {
@@ -46,6 +56,12 @@ p {
 
 
 #sort-options {
-    text-align: left;
+    text-align: center;
     margin-left: -5px;
+}
+
+#error-message {
+    text-align: center;
+    align-items: center;
+    flex: 2;
 }

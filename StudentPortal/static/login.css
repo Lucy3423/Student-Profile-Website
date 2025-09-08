@@ -7,18 +7,39 @@ h1, h2, h3 {
     background-image: url(https://i.pinimg.com/1200x/f0/53/31/f053312501da8df5ac58ecace259559c.jpg);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: cover;
     height: 100vh;
     width: 100%;
-    background-size: 100% auto;
     opacity: 0.95;
     position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin: 0;
+}
+
+
+.login-form-background {
+    height: 400px;
+    width: 300px;
+    background-color: whitesmoke;
+    border: 2px solid crimson;
+    opacity: 0.9;
+    position: center;
+    justify-content: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px 20px rgba(200, 20, 60, 5); /* offset-x offset-y blur-radius spread-radius color */
+}
+
+.login-form {
+    color: black;
+    z-index: 2;
+    position: relative;
+    flex-direction: column;     /* stack the content vertically */
+    align-items: center;
+    display: flex;
     justify-content: center;
 }
 
-
-.login-form {
-    color: white;
-    z-index: 2;
-    position: relative;
-}

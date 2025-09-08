@@ -1,0 +1,46 @@
+/* .body {
+    display: flex;
+    width: 1000px;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
+} */
+
+.body {
+    margin: 40px auto;
+    border: 3px solid crimson;
+    text-align: center;
+    width: 400px;
+    box-shadow: 5px 5px 20px rgba(200, 20, 60, 5); /* offset-x offset-y blur-radius spread-radius color */
+    padding: 20px;
+}
+
+.body ul{
+    /* list-style:none; removes the defaul style */
+    /* list-style: none; */
+    text-align: center;
+    padding-left: 0;
+    list-style-type: disc;
+}
+
+
+.body li {
+    display: list-item;
+    text-align: left;
+    margin-left: 30px;
+}
+
+
+
+/* NOTE: ::marker only applies to li elements, whereas ::before applies to all elements. */
+/* Both work in a similar way to apply change the appearance of elements */
+.body li::marker {
+    content: "• ";
+    color: black;
+}
+
+.gap {
+    margin: 50px auto;
+}
+
+ 

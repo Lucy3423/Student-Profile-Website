@@ -3,6 +3,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 
+from datetime import *
+
 
 from student import Student 
 from system import System
@@ -18,22 +20,26 @@ app.config["SECRET_KEY"] = "mysecret"
 system = System()
 system.set_up_students()
 system.set_up_clubs()
-
-
-
-new_bulletin_notice = Bulletin_notice("11/08/2025", "School Uniform Update", "upper 4", "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to.",)
-system.bulletin_notices.append(new_bulletin_notice)
-new_bulletin_notice = Bulletin_notice("09/08/2025", "Pack Lunches", "all", "This is a reminder that if your child wishes to have pack lunches next term, you must opt out of school lunches by 20/08/2025. Failing to do so will lead to automatique payment for the next term's lunches at school.")
-system.bulletin_notices.append(new_bulletin_notice)
-new_bulletin_notice = Bulletin_notice("20/08/2025", "Halloween Disco", "upper 6", "There will be a Halloween disco next Friday (29/08/25) starting at 6:30pm until 8pm. Students are encouraged to dress up in fun costumes for the event.")
-system.bulletin_notices.append(new_bulletin_notice)
+system.set_up_bulletin_entries()
 
 
 @app.route("/dashboard/<int:student_id>")
 def dashboard(student_id):
     student = system.find_student(student_id)
-    print(student.student_id)
-    return render_template("dashboard.html", student=student, student_id=student_id)
+    # find the current day and time
+    day = datetime.today()
+    # refine to only store the date rather than the time as well
+    date = day.date() 
+    date = date.strftime("%d/%m/%Y") # reorganise the date format 
+    # find the current day of the week by its name
+    current_day = day.strftime("%A") #A = full day (Monday), a = abbreviation (Mon)  
+    # find the index of the day e.g. Mon = 0
+    day_index = day.weekday()
+    # get the current time and reformat it
+    time = day.strftime("%H:%M:%S")
+    # identify the correct time greeting
+    greeting = system.identify_time_greeting(time)
+    return render_template("dashboard.html", student=student, student_id=student_id, current_day=current_day, date=date, system=system, day_index=day_index, greeting=greeting)
 
 
 
@@ -64,7 +70,8 @@ def login():
 def bulletin(student_id):
     sort_form = Bulletin_sort_form()
     sort_type = sort_form.sort_type.data
-    print(sort_type)
+    # date = date.today()
+    # print(date)
     return render_template("bulletin.html", bulletin_notices=system.bulletin_notices, student_id=student_id, sort_form=sort_form, sort_type=sort_type)
 
 
@@ -76,6 +83,9 @@ def clubs(student_id):
         system.find_chosen_club(club_id, system.students[student_id])
     club_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     return render_template("clubs.html", student_id=student_id, system=system, club_id=club_id, club_days = club_days)
+
+
+
 
 
 if __name__ == "__main__":

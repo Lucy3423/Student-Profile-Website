@@ -1,5 +1,5 @@
 #category {
-    width: 150px;
+    width: 180px;
     margin: 20px;
     padding: 10px auto;
 }
@@ -8,19 +8,28 @@
     color: crimson
 }
 
+summary {
+    font-size: 20px;
+    text-align: center;
+}
+
 summary:hover {
     background-color: lightcoral;
     color: white;
+    font-size: 20px;
+    text-align: center;
+
 }
 
 
 .categories {
-    display: flex; /* arrange each category in a row */
+    display:flex; /* arrange each category in a row */
     justify-content: center; /* center the row horizontally */ 
     gap: 50px; /* create space between each category */
     padding: 20px;
     height: 1500px;
     overflow: scroll;
+    text-align: center;
 }
 
 .category {
@@ -30,18 +39,18 @@ summary:hover {
     padding: 20px auto;
     justify-content: center;
 }
-#category-name {
+#club-name {
     color: crimson;
+    text-align: center;
+    align-items: left;
+    text-align: left;
     font-size: 25px;
 }
 #bullet-point {
     color: crimson;
 }
 
-summary {
-    font-size: 20px;
-    text-align: center;
-}
+
 
 button:hover {
     background-color: lightcoral;

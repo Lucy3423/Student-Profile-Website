@@ -1,0 +1,156 @@
+/* .column {
+    float: left;
+    width: 40%;
+    margin: 2px;
+    height: 460px;
+} */
+
+
+.body {
+    height: 460px;
+}
+
+
+.greeting-content {
+    text-align: center;
+    margin-right: 145px;
+}
+
+
+.greeting-column {
+    width: 30%;
+    height: 340px;
+    display: flex;
+    float: left;
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+    text-align: center;
+    flex-direction: column;
+}
+
+.greeting-column h2 {
+    padding: 0;
+    line-height: 0.5;
+    z-index: 1;
+    position: relative;
+}
+
+.bulletin-notice-column {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+}
+
+.bulletin-content {
+    margin-left: 20px;
+    border: 3px solid crimson;
+    width: 70%;
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.link {
+    margin-left: -50px;
+    color: black;
+
+}
+
+.link:hover {
+    background-color: lightcoral !important;
+    color: white;
+    width: 170px;
+}
+
+h2 {
+    padding: 5px;
+
+}
+
+.club-column {
+    width: 35%;
+    float: left;
+}
+
+
+#date {
+    text-align: center;
+}
+
+table {
+    text-align: center;
+    height: 330px;
+    margin-left: 50px;
+    width: 80%;
+}
+
+tr {
+    height: 50px;
+}
+
+
+
+
+.bulletin-title {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+#morning-afternoon-image {
+    z-index: -1;
+    position: absolute;
+}
+
+.morning-afternoon-greeting {
+    color: black;
+    /* color: rgb(199, 191, 76); */
+    justify-content: center;
+    text-align: center;
+}
+
+.evening-greeting{
+    text-align: center;
+    color: rgb(120, 171, 247);
+    margin-top: 100px;
+    /* -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px; */
+    width: 40%;
+    float: left;
+    /* background-color: skyblue; */
+    /* margin-left: -70px; */
+    padding: 10px;
+    margin-left: -35px;
+}
+
+/* .evening-greeting h1 {
+    color: rgb(120, 171, 247) !important;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px; */
+/* } */
+
+#evening-image {
+    z-index: -1;
+    position: absolute;
+    margin-top: 100px;
+}
+
+a {
+    text-align: left;
+    justify-content: left !important;
+    align-items: left;
+}
+
+
+
+
+
+
+

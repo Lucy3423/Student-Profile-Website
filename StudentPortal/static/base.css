@@ -17,7 +17,8 @@ p {
     align-items: center;
     gap: 20px;
     padding: 0 20px;
-    display: flex
+    display: flex;
+    color: white;
 }
 
 .title {
@@ -44,7 +45,7 @@ a:hover {
 
 .header-image img {
     object-position: center 27%;
-    opacity: 0.95;
+    opacity: 1;
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -58,7 +59,7 @@ body {
 
 table {
     border-collapse: collapse;
-    border: 2px solid crimson;
+    border: 3px solid crimson;
     margin: 10px auto;
     width: 1200px;
     font-size: 17px;

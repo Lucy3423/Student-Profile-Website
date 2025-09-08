@@ -69,7 +69,7 @@
                 {% for science_club in system.science_clubs %}
 
                 <li>
-                    <h3 id="category-name">{{science_club.name | title}}</h3>
+                    <h3 id="club-name">{{science_club.name | title}}</h3>
 
                     <h4> {{science_club.day | title}} {{system.identify_club_time_slot(science_club)}}</h4>
                     <form method="POST">
@@ -88,7 +88,7 @@
             <ul>
                 {% for social_science_club in system.social_science_clubs %}
                 <li>
-                    <h3 id="category-name"> {{social_science_club.name | title}}</h3>
+                    <h3 id="club-name"> {{social_science_club.name | title}}</h3>
 
                     <h4> {{social_science_club.day | title}} {{system.identify_club_time_slot(social_science_club)}}
                     </h4>
@@ -109,7 +109,7 @@
             <ul>
                 {% for music_club in system.music_clubs %}
                 <li>
-                    <h3 id="category-name"> {{music_club.name | title}}</h3>
+                    <h3 id="club-name"> {{music_club.name | title}}</h3>
                     <h4> {{music_club.day | title}} {{system.identify_club_time_slot(music_club)}}</h4>
                     <form method="POST">
                         <input type="hidden" name="club_id" value="{{music_club.club_id}}">
@@ -127,7 +127,7 @@
             <ul>
                 {% for sport_club in system.sport_clubs %}
                 <li>
-                    <h3 id="category-name"> {{sport_club.name | title}}</h3>
+                    <h3 id="club-name"> {{sport_club.name | title}}</h3>
                     <h4> {{sport_club.day | title}} {{system.identify_club_time_slot(sport_club)}}</h4>
                     <form method="POST">
                         <input type="hidden" name="club_id" value="{{sport_club.club_id}}">

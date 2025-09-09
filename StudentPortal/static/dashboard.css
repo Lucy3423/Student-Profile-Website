@@ -56,15 +56,20 @@
 
 }
 
-.link {
-    margin-left: -50px;
-    color: black;
+.link a{
+    /* margin-left: -50px; */
+    color: black !important;
+    padding-left: -50px;
+    /* position: center;
+    align-items: center;
+    text-align: left;
+    display: flex; */
 
 }
 
 .link:hover {
     background-color: lightcoral !important;
-    color: white;
+    color: white !important;
     width: 170px;
 }
 

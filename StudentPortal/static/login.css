@@ -33,6 +33,17 @@ h1, h2, h3 {
     box-shadow: 5px 5px 20px rgba(200, 20, 60, 5); /* offset-x offset-y blur-radius spread-radius color */
 }
 
+.title {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: center;
+}
+
+.error {
+    text-align: center;
+}
+
 .login-form {
     color: black;
     z-index: 2;

@@ -84,7 +84,9 @@ def clubs(student_id):
     club_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
     return render_template("clubs.html", student_id=student_id, system=system, club_id=club_id, club_days = club_days)
 
-
+@app.route('/flexbox')
+def flexbox():
+    return render_template("flexbox.html")
 
 
 

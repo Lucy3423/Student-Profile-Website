@@ -16,14 +16,14 @@ class System:
         student_club_structure1 = [["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]]
         student_club_structure = [["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]]
         
-        self.students.append(Student("Lucy", "Fowler", "21/07/2008", 0, "Lucy", "Fowler", "upper 6", ["French", "Maths", "Computing"], student_club_structure1))
-        self.students.append(Student("John", "Brown", "04/5/2007", 1, "John", "Brown", "upper 5", ["DT", "Maths", "Art", "English", "German"], student_club_structure))
+        self.students.append(Student("Lily", "Green", "21/09/2008", 0, "Lily", "Green", "lower 6", ["French", "Maths", "Computing"], student_club_structure1))
+        self.students.append(Student("John", "Brown", "04/05/2007", 1, "John", "Brown", "upper 5", ["DT", "Maths", "Art", "English", "German"], student_club_structure))
         return self.students
     
     def set_up_bulletin_entries(self):
         self.bulletin_notices.append(Bulletin_notice("11/08/2025", "School Uniform Update", "upper 4", "We have recently changed the school uniform to allow girls in all year groups to wear trousers instead of the skirt if they wish to."))
         self.bulletin_notices.append(Bulletin_notice("09/08/2025", "Pack Lunches", "all", "This is a reminder that if your child wishes to have pack lunches next term, you must opt out of school lunches by 20/08/2025. Failing to do so will lead to automatique payment for the next term's lunches at school."))
-        self.bulletin_notices.append(Bulletin_notice("20/08/2025", "Halloween Disco", "upper 6", "There will be a Halloween disco next Friday (29/08/25) starting at 6:30pm until 8pm. Students are encouraged to dress up in fun costumes for the event."))
+        self.bulletin_notices.append(Bulletin_notice("20/010/2025", "Halloween Disco", "upper 6", "There will be a Halloween disco next Friday (29/08/25) starting at 6:30pm until 8pm. Students are encouraged to dress up in fun costumes for the event."))
         self.bulletin_notices.append(Bulletin_notice("06/09/2025", "New Club: Pickleball", "all", "Next Wednesday our new Pickball club will be starting at lunch time from 12:05 -> 12:25. We're looking forward to seeing you there!"))
 
 

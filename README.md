@@ -1,4 +1,5 @@
 # AthenaAward  
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
 
 I have programmed a hypothetical school portal which consists of 5 pages, a login page, dashboard, bulletin board (for news posts), student profile and lastly a clubs page where the user can add new clubs and view their current ones on a timetable.
 This is my first web project and prior to this project, I had recently finished a course on Flask. In addition to this new content, I also learned HTML and CSS. Doing this project really helped me to grasp a better understanding of these new areas and use them confidently. Admitedly, it was a pretty challenging project considering I was teaching myself so much new content. In particulary, I really struggled with Flexbox, causing me to focus on developping other skills instead. However, I was able to untilise flexbox to a certain extent. Using sources like Geeks For Geeks and Codecademy (where I did the courses) also helped me to solve smaller problems within my code. 
